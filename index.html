@@ -34,6 +34,13 @@
 			background-attachment: fixed;
 		}
 
+		/* Скрываем перенос строки на экранах шире 768 пикселей (компьютеры и планшеты) */
+	    @media (min-width: 768px) {
+		  .mobile-break {
+		    display: none;
+		  }
+	    }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -730,9 +737,9 @@
 
         <footer class="site-footer">
             © 2026 Все права защищены.<br>
-            <strong>Организатор (Самозанятый):</strong> Хамжуева Лариса Анатольевна<br>
+            <strong>Организатор (самозанятый):</strong> <br class="mobile-break">Хамжуева Лариса Анатольевна<br>
             <strong>ИНН:</strong> 071302132352, г. Нальчик<br>
-            <strong>Телефон:</strong> +7(928)704-28-10 &nbsp;|&nbsp; <strong>Email:</strong> hamzhueva@yandex.ru
+            <strong>Телефон:</strong> +7(928)704-28-10 <br class="mobile-break"> <strong>Email:</strong> hamzhueva@yandex.ru
         </footer>
     </div>
 
