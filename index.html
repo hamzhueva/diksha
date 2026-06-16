@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ананда Дикша | 17 мая, Нальчик</title>
+    <style>
+        /* --- ЦВЕТОВАЯ ПАЛИТРА (СВЕТЛАЯ) --- */
+        :root {
+            --base-bg-color: #f4f7f6;
+            --text-main: #2c3e50;
+            --text-muted: #607d8b;
+            --title-color: #1a1a1a;
+            
+            --accent-gold: #B8860B;
+            --accent-hover: #D4AF37;
+            
+            --card-bg: rgba(255, 255, 255, 0.95); 
+            --card-border: rgba(0, 0, 0, 0.05);
+            --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --required-color: #e74c3c;
+        }
+
+        body {
+			margin: 0; padding: 0;
+			font-family: 'Inter', sans-serif;
+			color: var(--text-main);
+			background-color: #f8f9fa;
+			background-image: 
+				radial-gradient(circle at 100% 0%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+				radial-gradient(circle at 0% 100%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+				radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
+			background-attachment: fixed;
+		}
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .main-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--shadow-main);
+            border: 1px solid var(--card-border);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .article-inline-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--title-color);
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* --- БЛОК ДЕТАЛЕЙ --- */
+        .event-details {
+            background-color: #f8fbfd;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column; 
+            gap: 24px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.1rem;
+            gap: 14px;
+        }
+
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px; 
+        }
+
+        .info-item strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .info-item span {
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .map-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .countdown-timer {
+            color: #000000;
+            font-weight: 500;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .description p {
+            margin-bottom: 22px;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            opacity: 0.95;
+        }
+
+        .important-notice {
+            background-color: rgba(184, 134, 11, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            padding: 25px;
+            border-radius: 4px 8px 8px 4px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .important-notice-content {
+            flex: 1; 
+        }
+
+        .important-notice strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 4px; 
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .water-bottle-icon {
+            flex-shrink: 0;
+            width: 100px;
+            height: auto;
+            transform: rotate(10deg); 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+        }
+
+        /* --- СТИЛИ ДЛЯ РАЗДЕЛИТЕЛЬНОЙ ЧЕРТЫ И РЕГИСТРАЦИИ --- */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: 50px 0 40px 0;
+        }
+
+        .registration-section {
+            margin-top: 20px;
+        }
+
+        .registration-section h2 {
+            font-size: 2rem;
+            color: var(--title-color);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label, .radio-group-label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .required-star {
+            color: var(--required-color);
+            margin-left: 3px;
+            font-weight: bold;
+            font-size: 0.85em;
+            vertical-align: super;
+            position: relative; 
+            top: 4px; 
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+            background-color: #fff;
+            color: var(--text-main);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+        }
+
+        /* --- СТИЛИ ДЛЯ АНКЕТЫ --- */
+        .questionnaire-panel {
+            background-color: #f9fbfd;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            margin-top: 40px; 
+        }
+
+        .radio-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 1rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        .radio-option input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0;
+            margin-right: 15px;
+            flex-shrink: 0;
+            align-self: center;
+            position: relative;
+            background-color: #fff;
+            transition: all 0.2s;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .radio-option input[type="radio"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        .radio-option input[type="radio"]:checked {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        .radio-option input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 4px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .radio-option span {
+            line-height: 1.4;
+            align-self: center;
+        }
+
+        /* Выбор количества билетов */
+        .ticket-selector {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fbfd;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .selector-label {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .counter-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .counter-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .counter-btn:hover {
+            background: var(--accent-gold);
+            color: #fff;
+        }
+
+        .ticket-qty {
+            font-weight: 700;
+            font-size: 1.15rem;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* Способы оплаты */
+        .payment-group {
+            margin-top: 35px;
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .payment-card {
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .payment-card input[type="radio"] {
+            display: none;
+        }
+
+        .payment-card-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: all 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        .payment-card-icon {
+            width: 35px;
+            height: 35px;
+            object-fit: contain; 
+            transition: all 0.25s ease;
+        }
+
+        .payment-card:hover .payment-card-content {
+            border-color: var(--accent-hover);
+            background-color: #fafdfc;
+        }
+
+        .payment-card input[type="radio"]:checked + .payment-card-content {
+            border-color: var(--accent-gold);
+            background-color: rgba(184, 134, 11, 0.05);
+            color: var(--accent-gold);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.05);
+        }
+
+        .payment-hint-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .payment-hint-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .payment-logos {
+            height: 26px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .total-price-box {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--title-color);
+            margin: 35px 0 20px 0;
+            text-align: left;
+        }
+
+        /* --- СТИЛИ ДЛЯ ГАЛОЧКИ СОГЛАСИЯ --- */
+        .legal-agreement {
+            margin-bottom: 25px;
+        }
+
+        .legal-agreement-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .legal-agreement-label input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: var(--accent-gold);
+        }
+
+        .legal-agreement-label a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .legal-agreement-label a:hover {
+            color: var(--accent-hover);
+        }
+
+        .pay-button {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--accent-gold);
+            color: #ffffff; 
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 18px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+        }
+
+        .pay-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+        }
+
+        .post-pay-notice {
+            margin-top: 30px; 
+            padding: 15px;
+            background-color: #f9fbfd;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .site-footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px 10px; }
+            .main-card { padding: 30px 20px; border-radius: 15px; }
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; }
+            
+            .event-details { padding: 20px; gap: 20px; }
+            
+            .important-notice { flex-direction: row; align-items: center; gap: 15px; padding: 20px; }
+            .water-bottle-icon { width: 80px; }
+            .payment-options { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="main-card">
+            
+            <img src="img/poster.jpg" alt="Ананда Дикша Афиша" class="hero-image">
+
+            <header>
+                <h1>Ананда Дикша</h1>
+                <div class="subtitle">Психология и самопознание (12+)</div>
+            </header>
+
+            <div class="event-details">
+                <div class="info-item">
+                    <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <div class="info-content">
+                        <strong>Дата:</strong> 
+                        <span>13 сентября <span class="countdown-timer"></span></span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <div class="info-content">
+                        <strong>Время:</strong> 
+                        <span>12:00 – 15:00 МСК</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <div class="info-content">
+                        <strong>Место:</strong> 
+                        <span>
+                            г. Нальчик, ул. Пирогова, 1 (СПА Отель Синдика)<br>
+                            <a href="https://yandex.ru/maps/org/sindika/159022608899/?l=sat%2Cskl&ll=43.576931%2C43.458185&z=19" target="_blank" class="map-link">Показать на карте</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>В условиях постоянных изменений и давления человек всё чаще сталкивается с внутренним напряжением. Оно проявляется через усталость, потерю мотивации, стресс, сомнения и неудовлетворённость жизнью.</p>
+                <p>Даже развиваясь и стремясь к успеху, многие ощущают внутреннюю пустоту и теряют направление.</p>
+
+                <img src="img/article_photo.jpg" alt="Процесс программы" class="article-inline-image">
+
+                <p>Феномен Великого Сострадательного Света помогает восстановить внутренний баланс и обрести гармонию независимо от обстоятельств. Счастливый человек формирует гармонию вокруг себя — в жизни, семье и обществе.</p>
+                <p>Свобода находится внутри, а не снаружи. Осознанное развитие позволяет не просто наслаждаться жизнью, но и вносить вклад в мир. Наши решения формируют реальность. И у каждого есть возможность выбрать путь внутренней свободы, радости и позитивных изменений.</p>
+                <p>Приглашаем вас на двухчасовую программу «Ананда Дикша», где каждый участник сможет получить опыт преобразования внутреннего состояния и получить помощь Великого Сострадательного Света в реализации своего желания.</p>
+            </div>
+
+            <div class="important-notice">
+                <img src="img/bottle.png" alt="Бутылка воды" class="water-bottle-icon">
+                
+                <div class="important-notice-content">
+                    <strong>ВАЖНО</strong>
+                    Для полноценного участия в программе, вам понадобится новая запакованная бутылка негазированной питьевой воды. Она понадобится вам в процессе.
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <section class="registration-section">
+                <h2>Регистрация</h2>
+
+                <div class="event-details">
+                    <div class="info-item">
+                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <div class="info-content">
+                            <strong>Дата:</strong> 
+                            <span>13 сентября <span class="countdown-timer"></span></span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <div class="info-content">
+                            <strong>Время:</strong> 
+                            <span>12:00 – 15:00 МСК</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div class="info-content">
+                            <strong>Место:</strong> 
+                            <span>
+                                г. Нальчик, ул. Пирогова, 1 (СПА Отель Синдика)<br>
+                                <a href="https://yandex.ru/maps/org/sindika/159022608899/?l=sat%2Cskl&ll=43.576931%2C43.458185&z=19" target="_blank" class="map-link">Показать на карте</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ticket-selector">
+                    <span class="selector-label">Количество билетов:</span>
+                    <div class="counter-controls">
+                        <button type="button" class="counter-btn" id="btnMinus">-</button>
+                        <span class="ticket-qty" id="ticketQty">1</span>
+                        <button type="button" class="counter-btn" id="btnPlus">+</button>
+                    </div>
+                </div>
+
+                <form id="orderForm" onsubmit="event.preventDefault(); alert('Перенаправление на страницу оплаты...');">
+                    
+                    <div class="form-group">
+                        <label for="userName">Имя<span class="required-star">*</span></label>
+                        <input type="text" id="userName" class="form-control" oninput="this.value = this.value.replace(/[0-9]/g, '')" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userLastName">Фамилия<span class="required-star">*</span></label>
+                        <input type="text" id="userLastName" class="form-control" oninput="this.value = this.value.replace(/[0-9]/g, '')" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userCity">Город<span class="required-star">*</span></label>
+                        <input type="text" id="userCity" class="form-control" oninput="this.value = this.value.replace(/[0-9]/g, '')" required>
+                    </div>
+
+                    <div class="form-group">
+						<label for="userEmail">E-mail<span class="required-star">*</span></label>
+						<input type="email" id="userEmail" class="form-control" placeholder="example@mail.ru" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Введите корректный адрес электронной почты, например: example@mail.ru" oninput="this.value = this.value.replace(/[а-яА-ЯёЁ\s]/g, '')" required>
+					</div>
+
+                    <div class="form-group">
+						<label for="userPhone">Телефон<span class="required-star">*</span></label>
+						<input type="tel" id="userPhone" class="form-control" placeholder="+79990000000" minlength="11" maxlength="12" pattern="(\+7|8)[0-9]{10}" title="Введите номер, начиная с +7 или 8 (ровно 11 цифр)" oninput="this.value = this.value.replace(/[^0-9+]/g, '').replace(/^7/, '+7')" required>
+					</div>
+
+                    <div class="form-group payment-group">
+                        <label>Выбрать способ оплаты:</label>
+                        <div class="payment-options">
+                            
+                            <label class="payment-card">
+                                <input type="radio" name="paymentMethod" value="sbp" checked required>
+                                <div class="payment-card-content">
+                                    <img src="img/spb.png" alt="СБП" class="payment-card-icon">
+                                    <span>СБП</span>
+                                </div>
+                            </label>
+                            
+                            <label class="payment-card">
+                                <input type="radio" name="paymentMethod" value="card">
+                                <div class="payment-card-content">
+                                    <img src="img/karta.png" alt="Банковская карта" class="payment-card-icon">
+                                    <span>Банковская карта</span>
+                                </div>
+                            </label>
+                            
+                        </div>
+                        
+                        <div class="payment-hint-wrapper">
+                            <span class="payment-hint-text">К оплате принимаются карты любых банков РФ (МИР, Visa, Mastercard)</span>
+                            <img src="img/cards-logos.png" alt="Логотипы карт" class="payment-logos">
+                        </div>
+                    </div>
+
+                    <div class="total-price-box">
+                        Итого к оплате: <span id="totalPrice">1500</span> ₽
+                    </div>
+
+                    <!-- Кнопка оплаты (остается без изменений) -->
+					<button type="submit" class="pay-button">Перейти к оплате</button>
+
+					<!-- Новый текст вместо галочки -->
+					<div style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; line-height: 1.4;">
+						Нажимая «Перейти к оплате», вы принимаете условия <br>
+						<a href="oferta.pdf" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">публичной оферты</a> 
+						и даете согласие на 
+						<a href="oferta.pdf" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">обработку персональных данных</a>.
+					</div>
+										
+					<!-- Существующее уведомление о чеках -->
+					<div class="post-pay-notice">
+						После оплаты чек придёт на email.<br>На входе просто напишите своё имя, фамилию и телефон. Ждём вас!
+					</div>
+                </form>
+            </section>
+
+        </div>
+
+        <footer class="site-footer">
+            © 2026 Все права защищены.<br>
+            <strong>Организатор (Самозанятый):</strong> Хамжуева Лариса Анатольевна<br>
+            <strong>ИНН:</strong> 071302132352<br>
+            <strong>Телефон:</strong> +7(928)704-28-10 &nbsp;|&nbsp; <strong>Email:</strong> hamzhueva@yandex.ru
+        </footer>
+    </div>
+
+    <script>
+        // ==============================================================
+        // 1. УМНЫЙ СКРИПТ РЕЗЕРВНЫХ (ПРЯМЫХ) ССЫЛОК ДЛЯ ИЗОБРАЖЕНИЙ
+        // ==============================================================
+        
+        // Вставьте сюда ваши прямые ссылки со SpaceWeb (sweb)
+        const fallbackImages = {
+            'img/poster.jpg': 'https://online-script.ru/img/poster.jpg',
+            'img/article_photo.jpg': 'https://online-script.ru/img/article_photo.jpg',
+            'img/bottle.png': 'https://online-script.ru/img/bottle.png',
+            'img/spb.png': 'https://online-script.ru/img/spb.png',
+            'img/karta.png': 'https://online-script.ru/img/karta.png',
+            'img/cards-logos.png': 'https://online-script.ru/img/cards-logos.png'
+        };
+
+        // Обработка всех тегов <img>
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                // Чтобы избежать бесконечного цикла
+                if (!this.dataset.fallbackApplied) {
+                    this.dataset.fallbackApplied = "true";
+                    
+                    const src = this.getAttribute('src');
+                    if (fallbackImages[src]) {
+                        this.src = fallbackImages[src]; // Пробуем загрузить с прямой ссылки
+                    } else {
+                        this.style.display = 'none'; // Если ссылки нет, прячем
+                    }
+                } else {
+                    this.style.display = 'none'; // Если прямая ссылка тоже не сработала, прячем
+                }
+            };
+        });
+
+        // Отдельная обработка для фонового изображения (bg.jpg)
+        const bgChecker = new Image();
+        bgChecker.src = 'img/bg.jpg';
+        bgChecker.onerror = function() {
+            // Если локальный фон не загрузился, ставим прямой URL
+            document.body.style.backgroundImage = "url('https://твой-сайт.ру/img/bg.jpg')";
+        };
+
+
+        // ==============================================================
+        // 2. ЛОГИКА ТАЙМЕРА ОБРАТНОГО ОТСЧЕТА
+        // ==============================================================
+        function getDaysWord(n) {
+            let num = n % 100;
+            let lastDigit = num % 10;
+            if (num > 10 && num < 20) return 'дней';
+            if (lastDigit > 1 && lastDigit < 5) return 'дня';
+            if (lastDigit === 1) return 'день';
+            return 'дней';
+        }
+
+        function updateCountdown() {
+            // Дата начала мероприятия (13 сентября 2026, 12:00 МСК)
+            const eventDate = new Date('2026-09-13T12:00:00+03:00').getTime();
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            const countdownElements = document.querySelectorAll('.countdown-timer');
+            const formElement = document.getElementById('orderForm');
+            const ticketSelectorElement = document.querySelector('.ticket-selector');
+
+            if (diff > 0) {
+                // Если время еще есть — показываем таймер
+                const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                
+                let timeText = '';
+                if (daysLeft > 0) {
+                    timeText = `(через ${daysLeft} ${getDaysWord(daysLeft)})`;
+                } else if (hoursLeft > 0) {
+                    timeText = `(через ${hoursLeft} ч.)`;
+                } else {
+                    timeText = `(уже скоро)`;
+                }
+                
+                countdownElements.forEach(el => { el.textContent = ' ' + timeText; });
+            } else {
+                // Если время вышло (наступило 12:00 13 сентября)
+                countdownElements.forEach(el => { el.textContent = ''; }); // Убираем таймер
+                
+                // Скрываем форму регистрации и выбор количества билетов
+                if (formElement) formElement.style.display = 'none';
+                if (ticketSelectorElement) ticketSelectorElement.style.display = 'none';
+                
+                // Выводим сообщение о закрытии регистрации, если его еще нет
+                if (!document.getElementById('registrationClosedMsg')) {
+                    const regSection = document.querySelector('.registration-section');
+                    if (regSection) {
+                        const msgDiv = document.createElement('div');
+                        msgDiv.id = 'registrationClosedMsg';
+                        // Стилизуем блок в цветах твоего сайта
+                        msgDiv.style.cssText = 'background-color: #f9fbfd; color: var(--text-main); padding: 30px 20px; border-radius: 12px; text-align: center; margin-top: 20px; border: 1px solid rgba(0,0,0,0.05); line-height: 1.6; font-size: 1.1rem;';
+                        msgDiv.innerHTML = '<strong style="color: var(--accent-gold); font-size: 1.2rem; display: block; margin-bottom: 10px;">Извините, регистрация закрыта.</strong> Истек срок регистрации.<br>Подробности вы можете узнать у организаторов события.';
+                        
+                        // Добавляем сообщение в блок регистрации
+                        regSection.appendChild(msgDiv);
+                    }
+                }
+            }
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 3600000);
+
+
+        // ==============================================================
+        // 3. ЛОГИКА КАЛЬКУЛЯТОРА БИЛЕТОВ
+        // ==============================================================
+        const pricePerTicket = 1500; 
+        let currentQty = 1;
+
+        const btnMinus = document.getElementById('btnMinus');
+        const btnPlus = document.getElementById('btnPlus');
+        const displayQty = document.getElementById('ticketQty');
+        const displayTotal = document.getElementById('totalPrice');
+
+        function updateTotals() {
+            displayQty.textContent = currentQty;
+            displayTotal.textContent = currentQty * pricePerTicket;
+        }
+
+        btnPlus.onclick = function() {
+            if (currentQty < 10) { 
+                currentQty++;
+                updateTotals();
+            }
+        };
+
+        btnMinus.onclick = function() {
+            if (currentQty > 1) {
+                currentQty--;
+                updateTotals();
+            }
+        };
+    </script>
+</body>
+</html>
