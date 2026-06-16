@@ -34,19 +34,20 @@
 			background-attachment: fixed;
 		}
 
-		/* Скрываем перенос строки на экранах шире 768 пикселей (компьютеры и планшеты) */
-	    @media (min-width: 768px) {
+		/* 1. По умолчанию (для ПК и горизонтальных экранов) прячем тег переноса строки */
 		  .mobile-break {
 		    display: none;
 		  }
-	    }
-
-		/* Скрываем элемент на экранах меньше 768 пикселей (мобильные телефоны) */
-		@media (max-width: 767px) {
-			.mobile-hide {
-			 display: none;
+		
+		  /* 2. Включаем изменения ТОЛЬКО для экранов меньше 768px И в ВЕРТИКАЛЬНОМ положении */
+		  @media (max-width: 767px) and (orientation: portrait) {
+		    .mobile-break {
+		      display: block; /* Показываем перенос строки */
+		    }
+		    .mobile-hide {
+		      display: none; /* Прячем вертикальный слеш */
+		    }
 		  }
-		}
 
         .container {
             max-width: 800px;
