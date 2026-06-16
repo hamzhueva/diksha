@@ -740,49 +740,7 @@
 
     <script>
         // ==============================================================
-        // 1. УМНЫЙ СКРИПТ РЕЗЕРВНЫХ (ПРЯМЫХ) ССЫЛОК ДЛЯ ИЗОБРАЖЕНИЙ
-        // ==============================================================
-        
-        // Вставьте сюда ваши прямые ссылки со SpaceWeb (sweb)
-        const fallbackImages = {
-            'img/poster.jpg': 'https://online-script.ru/img/poster.jpg',
-            'img/article_photo.jpg': 'https://online-script.ru/img/article_photo.jpg',
-            'img/bottle.png': 'https://online-script.ru/img/bottle.png',
-            'img/spb.png': 'https://online-script.ru/img/spb.png',
-            'img/karta.png': 'https://online-script.ru/img/karta.png',
-            'img/cards-logos.png': 'https://online-script.ru/img/cards-logos.png'
-        };
-
-        // Обработка всех тегов <img>
-        document.querySelectorAll('img').forEach(img => {
-            img.onerror = function() {
-                // Чтобы избежать бесконечного цикла
-                if (!this.dataset.fallbackApplied) {
-                    this.dataset.fallbackApplied = "true";
-                    
-                    const src = this.getAttribute('src');
-                    if (fallbackImages[src]) {
-                        this.src = fallbackImages[src]; // Пробуем загрузить с прямой ссылки
-                    } else {
-                        this.style.display = 'none'; // Если ссылки нет, прячем
-                    }
-                } else {
-                    this.style.display = 'none'; // Если прямая ссылка тоже не сработала, прячем
-                }
-            };
-        });
-
-        // Отдельная обработка для фонового изображения (bg.jpg)
-        const bgChecker = new Image();
-        bgChecker.src = 'bg.jpg';
-        bgChecker.onerror = function() {
-            // Если локальный фон не загрузился, ставим прямой URL
-            document.body.style.backgroundImage = "url('https://твой-сайт.ру/img/bg.jpg')";
-        };
-
-
-        // ==============================================================
-        // 2. ЛОГИКА ТАЙМЕРА ОБРАТНОГО ОТСЧЕТА
+        // 1. ЛОГИКА ТАЙМЕРА ОБРАТНОГО ОТСЧЕТА
         // ==============================================================
         function getDaysWord(n) {
             let num = n % 100;
@@ -848,7 +806,7 @@
 
 
         // ==============================================================
-        // 3. ЛОГИКА КАЛЬКУЛЯТОРА БИЛЕТОВ
+        // 2. ЛОГИКА КАЛЬКУЛЯТОРА БИЛЕТОВ
         // ==============================================================
         const pricePerTicket = 1500; 
         let currentQty = 1;
