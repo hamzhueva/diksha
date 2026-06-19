@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка оплаты | Ананда Дикша</title>
+    <style>
+        /* Те же базовые стили, что и выше */
+        :root {
+            --base-bg-color: #f4f7f6;
+            --text-main: #2c3e50;
+            --text-muted: #607d8b;
+            --title-color: #1a1a1a;
+            --accent-gold: #B8860B;
+            --accent-hover: #D4AF37;
+            --card-bg: rgba(255, 255, 255, 0.95); 
+            --card-border: rgba(0, 0, 0, 0.05);
+            --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: #f8f9fa;
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px; 
+            margin: auto;
+            padding: 40px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--shadow-main);
+            border: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .icon-error {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            stroke: #e74c3c; /* Красный цвет для ошибки */
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--title-color);
+            margin: 0 0 15px 0;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .pay-button {
+            display: inline-block;
+            width: 100%;
+            background-color: transparent;
+            color: var(--text-main); 
+            border: 2px solid #ddd;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 14px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .pay-button:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .site-footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-card">
+            <!-- Иконка ошибки -->
+            <svg class="icon-error" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+            
+            <h1>Что-то пошло не так</h1>
+            <p>К сожалению, оплата не была завершена или произошла ошибка. Деньги не списаны.</p>
+            <p>Пожалуйста, попробуйте еще раз или свяжитесь с нами, если проблема сохраняется.</p>
+            
+            <a href="https://diksha-nalchik.ru/" class="pay-button">Попробовать снова</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        © 2026 Все права защищены.<br>
+        <strong>Организатор:</strong> Хамжуева Лариса Анатольевна<br>
+        <strong>Телефон:</strong> +7(928)704-28-10 | <strong>Email:</strong> hamzhueva@yandex.ru
+    </footer>
+</body>
+</html>
